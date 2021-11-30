@@ -6,44 +6,28 @@
 /*   By: tshigena <tshigena@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 22:41:46 by tshigena          #+#    #+#             */
-/*   Updated: 2021/11/19 22:02:10 by tshigena         ###   ########.fr       */
+/*   Updated: 2021/12/01 00:00:17 by tshigena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
-void	putchar_from_binary(int binary)
-{
-	int	base;
-	int	decimal;
-
-	base = 1;
-	decimal = 0;
-	while (binary > 0)
-	{
-		decimal = decimal + (binary % 10) * base;
-		binary = binary / 10;
-		base = base * 2;
-	}
-	ft_printf("%c", decimal);
-}
-
 void	recieve_binary_and_put(int bit)
 {
-	static int	binary = 0;
-	static int	binary_digit = 0;
+	static t_data	data = {0};
 
-	// printf("%d\n",bit);
-	binary = (binary * 10) + (bit % 2);
-	binary_digit++;
-	if (binary_digit == 7)
+	if (data.base == 0)
+		data.base = 1;
+	data.decimal = data.decimal + (bit % 10) * data.base;
+	data.base *= 2;
+	data.digit++;
+	if (data.digit == 10)
 	{
-		if (binary)
-			putchar_from_binary(binary);
-		else
+		if (data.decimal == 0)
 			ft_printf("\n");
-		binary_digit = 0;
-		binary = 0;
+		else
+			ft_printf("%c", data.decimal);
+		data = (t_data){0};
 	}
 }
 
