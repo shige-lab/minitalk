@@ -6,7 +6,7 @@
 /*   By: tshigena <tshigena@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 22:41:46 by tshigena          #+#    #+#             */
-/*   Updated: 2021/12/01 00:00:17 by tshigena         ###   ########.fr       */
+/*   Updated: 2021/12/01 12:11:20 by tshigena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	recieve_binary_and_put(int bit)
 	data.decimal = data.decimal + (bit % 10) * data.base;
 	data.base *= 2;
 	data.digit++;
-	if (data.digit == 10)
+	if (data.digit == 8)
 	{
 		if (data.decimal == 0)
 			ft_printf("\n");

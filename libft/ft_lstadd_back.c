@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tshigena <tshigena@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/08 23:31:41 by tshigena          #+#    #+#             */
-/*   Updated: 2021/12/01 15:20:08 by tshigena         ###   ########.fr       */
+/*   Created: 2021/10/27 16:38:58 by tshigena          #+#    #+#             */
+/*   Updated: 2021/11/07 23:37:09 by tshigena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINITALK_H
-# define MINITALK_H
+#include "libft.h"
 
-# include <stdio.h>
-# include <signal.h>
-# include <unistd.h>
-# include "libft/libft.h"
-
-typedef struct s_data
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	int	base;
-	int	decimal;
-	int	digit;
-}	t_data;
+	t_list	*lst_last;
 
-#endif
+	if (!lst || !new)
+		return ;
+	if (*lst)
+	{
+		lst_last = ft_lstlast(*lst);
+		lst_last->next = new;
+	}
+	else
+		*lst = new;
+}

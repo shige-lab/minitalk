@@ -3,7 +3,7 @@ CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 SRCS = server.c client.c
 OBJS = $(SRCS:%.c=%.o)
-PRINTF = ft_printf/libftprintf.a
+PRINTF = libft/libft.a
 
 $(NAME): all
 
@@ -13,13 +13,13 @@ all: $(PRINTF) $(OBJS)
 	$(CC) $(CFLAGS) -o $@ $< $(PRINTF)
 
 $(PRINTF): empty
-	make -C ft_printf
+	make -C libft
 empty:
 
 test: all
 	./server.o
 clean:
-	make clean -C ft_printf
+	make clean -C libft
 	rm $(OBJS)
 fclean: clean
 	rm -f $(PRINTF)

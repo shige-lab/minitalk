@@ -1,28 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   print_u.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tshigena <tshigena@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/08 23:31:41 by tshigena          #+#    #+#             */
-/*   Updated: 2021/12/01 15:20:08 by tshigena         ###   ########.fr       */
+/*   Created: 2021/11/06 01:44:33 by tshigena          #+#    #+#             */
+/*   Updated: 2021/12/01 13:46:01 by tshigena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINITALK_H
-# define MINITALK_H
+#include "libft.h"
 
-# include <stdio.h>
-# include <signal.h>
-# include <unistd.h>
-# include "libft/libft.h"
-
-typedef struct s_data
+size_t	print_u(unsigned int u)
 {
-	int	base;
-	int	decimal;
-	int	digit;
-}	t_data;
-
-#endif
+	return (put_num_dx(u, 10, 0));
+}

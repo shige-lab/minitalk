@@ -6,7 +6,7 @@
 /*   By: tshigena <tshigena@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 22:41:51 by tshigena          #+#    #+#             */
-/*   Updated: 2021/12/01 00:01:58 by tshigena         ###   ########.fr       */
+/*   Updated: 2021/12/01 12:11:00 by tshigena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	send_binary(int id, char *str)
 	while (i <= str_len)
 	{
 		digit = 0;
-		while (digit < 10)
+		while (digit < 8)
 		{
 			bit = str[i] >> digit & 1;
 			if (bit == 0)

@@ -1,28 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tshigena <tshigena@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/08 23:31:41 by tshigena          #+#    #+#             */
-/*   Updated: 2021/12/01 15:20:08 by tshigena         ###   ########.fr       */
+/*   Created: 2021/10/27 16:40:06 by tshigena          #+#    #+#             */
+/*   Updated: 2021/11/07 23:38:18 by tshigena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINITALK_H
-# define MINITALK_H
+#include "libft.h"
 
-# include <stdio.h>
-# include <signal.h>
-# include <unistd.h>
-# include "libft/libft.h"
-
-typedef struct s_data
+void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	int	base;
-	int	decimal;
-	int	digit;
-}	t_data;
+	size_t			i;
+	unsigned char	*d;
+	unsigned char	*s;
 
-#endif
+	d = (unsigned char *)dest;
+	s = (unsigned char *)src;
+	i = 0;
+	if (n == 0 || dest == src)
+		return (dest);
+	if (d < s)
+	{
+		while (i < n)
+		{
+			d[i] = s[i];
+			i++;
+		}
+	}
+	else if (d > s)
+	{
+		i = n;
+		while (i-- > 0)
+			d[i] = s[i];
+	}
+	return (dest);
+}

@@ -1,28 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tshigena <tshigena@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/08 23:31:41 by tshigena          #+#    #+#             */
-/*   Updated: 2021/12/01 15:20:08 by tshigena         ###   ########.fr       */
+/*   Created: 2021/10/27 16:40:47 by tshigena          #+#    #+#             */
+/*   Updated: 2021/11/07 23:39:14 by tshigena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINITALK_H
-# define MINITALK_H
+#include "libft.h"
 
-# include <stdio.h>
-# include <signal.h>
-# include <unistd.h>
-# include "libft/libft.h"
-
-typedef struct s_data
+char	*ft_strdup(const char *src)
 {
-	int	base;
-	int	decimal;
-	int	digit;
-}	t_data;
+	char	*cpy;
+	size_t	str_size;
 
-#endif
+	str_size = ft_strlen(src) + 1;
+	cpy = (char *)malloc(str_size * sizeof(char));
+	if (cpy)
+		ft_memcpy(cpy, src, str_size);
+	return (cpy);
+}

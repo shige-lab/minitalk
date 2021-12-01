@@ -1,28 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tshigena <tshigena@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/08 23:31:41 by tshigena          #+#    #+#             */
-/*   Updated: 2021/12/01 15:20:08 by tshigena         ###   ########.fr       */
+/*   Created: 2021/10/27 16:39:13 by tshigena          #+#    #+#             */
+/*   Updated: 2021/11/07 23:37:25 by tshigena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINITALK_H
-# define MINITALK_H
+#include "libft.h"
 
-# include <stdio.h>
-# include <signal.h>
-# include <unistd.h>
-# include "libft/libft.h"
-
-typedef struct s_data
+void	ft_lstdelone(t_list *lst, void (*del)(void*))
 {
-	int	base;
-	int	decimal;
-	int	digit;
-}	t_data;
-
-#endif
+	if ((*del) && lst)
+		(*del)(lst->content);
+	free (lst);
+}
