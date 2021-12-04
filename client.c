@@ -6,7 +6,7 @@
 /*   By: tshigena <tshigena@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 22:41:51 by tshigena          #+#    #+#             */
-/*   Updated: 2021/12/01 12:11:00 by tshigena         ###   ########.fr       */
+/*   Updated: 2021/12/03 17:10:43 by tshigena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ int	main(int argc, char **argv)
 	if (argc != 3)
 		return (0);
 	id = ft_atoi(argv[1]);
+	if (id < 1)
+		return (0);
 	send_binary(id, argv[2]);
 	return (0);
 }

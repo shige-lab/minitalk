@@ -2,17 +2,17 @@ NAME = minitalk
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 SRCS = server.c client.c
-OBJS = $(SRCS:%.c=%.o)
-PRINTF = libft/libft.a
+OBJS = $(SRCS:%.c=%)
+LIBFT = libft/libft.a
 
 $(NAME): all
 
-all: $(PRINTF) $(OBJS)
+all: $(LIBFT) $(OBJS)
 
-%.o:%.c
-	$(CC) $(CFLAGS) -o $@ $< $(PRINTF)
+%:%.c
+	$(CC) $(CFLAGS) -o $@ $< $(LIBFT)
 
-$(PRINTF): empty
+$(LIBFT): empty
 	make -C libft
 empty:
 
@@ -22,7 +22,7 @@ clean:
 	make clean -C libft
 	rm $(OBJS)
 fclean: clean
-	rm -f $(PRINTF)
+	rm -f $(LIBFT)
 re: clean all
 
 .PHONY: clean all re empty
